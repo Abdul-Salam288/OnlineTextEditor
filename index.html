@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
+    <title>ONLINE TEXT EDITOR</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="text-center container">
+    <main>
+        <h1 class="banner p-3 text-primary">Online Text Editor</h1>
+        <div class="row">
+          <div class="col">
+            <button id="large" type="button"  class="font btn btn-light" data-toggle="tooltip" data-placement="top" title="xx-Large" onclick="fontSize(this, 'xx-large')">xx-Large</button>
+            <button id="large" type="button"  class="font btn btn-light" data-toggle="tooltip" data-placement="top" title="x-Large" onclick="fontSize(this, 'x-large')">x-Large</button>
+            <button id="large" type="button"  class="font btn btn-light" data-toggle="tooltip" data-placement="top" title="Large" onclick="fontSize(this, 'large')">Large</button>
+            <button id="regular" type="button"  class="font btn btn-light" data-toggle="tooltip" data-placement="top" title="Regular" onclick="fontSize(this, 'medium')">Regular</button>
+            <button id="small" type="button"  class="font btn btn-light" data-toggle="tooltip" data-placement="top" title="Small" onclick="fontSize(this, 'small')">Small</button>
+
+            <button id="bold" type="button"  class="btn btn-light Bold" data-toggle="tooltip" data-placement="top" title="Bold" onclick="makeBold(this)">B</button>
+            <button id="italic" type="button"  class="btn btn-light italic" data-toggle="tooltip" data-placement="top" title="Italic" onclick="makeItalic(this)">I</button>
+            <button id="underline" type="button"  class="btn btn-light underline" data-toggle="tooltip" data-placement="top" title="Underline" onclick="makeUnderline(this)">U</button>
+            <button id="left-align" type="button"  class="align btn btn-light" data-toggle="tooltip" data-placement="top" title="leftAlign" onclick="alignText(this, 'left')"><i class="fas fa-align-left"></i></button>
+            <button id="center-align" type="button"  class="align btn btn-light" data-toggle="tooltip" data-placement="top" title="rightAlign" onclick="alignText(this, 'center')"><i class="fas fa-align-center"></i></button>
+            <button id="right-align" type="button"  class="align btn btn-light" data-toggle="tooltip" data-placement="top" title="centerAlign" onclick="alignText(this, 'right')"><i class="fas fa-align-right"></i></button>
+
+            <div class="popover" id="pop-emoji">
+              <button type="button" class="btn btn-light popover__trigger" data-toggle="tooltip" data-placement="top" title="Emotions">
+                <i class="fa fa-smile-o" aria-hidden="true"></i>
+              </button>
+              <table class="popover__menu popover-block" id="popover-data">
+                <tr class="popover__menu-item">
+                  <td><button value="&#128512;" onclick="emojiSelector(this)">&#128512;</button></td>
+                  <td><button value="&#128514;" onclick="emojiSelector(this)">&#128514;</button></td>
+                  <td><button value="&#128517;" onclick="emojiSelector(this)">&#128517;</button></td>
+                  <td><button value="&#128519;" onclick="emojiSelector(this)">&#128519;</button></td>
+                </tr>
+                <tr class="popover__menu-item">
+                  <td><button value="&#128525;" onclick="emojiSelector(this)">&#128525;</button></td>
+                  <td><button value="&#128523;" onclick="emojiSelector(this)">&#128523;</button></td>
+                  <td><button value="&#128527;" onclick="emojiSelector(this)">&#128527;</button></td>
+                  <td><button value="&#128526;" onclick="emojiSelector(this)">&#128526;</button></td>
+                </tr>
+                <tr class="popover__menu-item">
+                  <td><button value="&#128528;" onclick="emojiSelector(this)">&#128528;</button></td>
+                  <td><button value="&#128531;" onclick="emojiSelector(this)">&#128531;</button></td>
+                  <td><button value="&#128532;" onclick="emojiSelector(this)">&#128532;</button></td>
+                  <td><button value="&#128536;" onclick="emojiSelector(this)">&#128536;</button></td>
+                </tr>
+              </table>
+            </div>
+
+          <button type="button" id="numberedList" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="Numbered list" onclick="addListItem(this)">
+            <i class="fas fa-list-ol"></i>
+          </button>
+
+          <button type="button" id="bulletsList" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="Bullet list" onclick="addListItem(this)">
+            <i class="fas fa-list-ul"></i>
+          </button>
+
+          <div class="date-time">
+            <button type="button" id="datetime" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="insert Date-Time" onclick="insertDateTime('LT')">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </button> 
+              <div class="popover" id="pop-arrow">
+                <button type="button" id="arrow" class="btn btn-light popover__trigger" data-toggle="tooltip" data-placement="top" title="insert Date-Time">&#8681;</button>
+                <ul class="popover__menu popover-block" id="popover-data-clock">
+                  <li class="popover__menu-item">
+                    <button type="button" class="btn dt" onclick="insertDateTime('LTS')">2:16:51 PM</button>
+                  </li>
+                  <li class="popover__menu-item">
+                    <button type="button" class="btn dt" onclick="insertDateTime('l')">9/11/2020</button>
+                  </li>
+                  <li class="popover__menu-item">
+                    <button type="button" class="btn dt" onclick="insertDateTime('lll')">Sep 11, 2020 2:20 PM</button>
+                  </li>
+                  <li class="popover__menu-item">
+                    <button type="button" class="btn dt" onclick="insertDateTime('llll')">Fri, Sep 11, 2020 2:20 PM</button>
+                  </li>
+                </ul>
+              </div>
+          </div>
+
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Filename to Save As:</span>
+                </div>
+                <input type="text" id="inputFileNameToSaveAs" class="form-control" placeholder="Filename" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <button type="button" class="btn btn-outline-dark" onclick="saveTextAsFile()">Save as TXT file</button>
+            </div>
+
+          </div>
+        </div>
+        <hr />
+        <div class="row editor">
+          <div class="col">
+            <div class="form-group">
+              <label for="text-input">Your Document Text</label>
+              <textarea class="form-control" id="text-input" rows="15" oninput="updateText()"></textarea>
+          </div>
+          </div>
+          <div class="col">
+            <label for="text-input">Formatted Text</label>
+            <div id="text-output" class="bg-light">
+            </div>
+          </div>
+        </div>
+        
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

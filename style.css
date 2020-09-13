@@ -1,0 +1,184 @@
+#text-output {
+    min-height: 375px;
+    border-radius: 3px;
+    padding: 10px;
+    word-wrap: break-word;
+    text-align: left;
+  }
+  
+  #text-input {
+    min-height: 200px;
+  }
+  
+  .editor .col {
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+
+  #bold {
+    font-weight: bolder;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .italic {
+    font-style: italic;
+  }
+  
+  .underline {
+    text-decoration: underline;
+  }
+  
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .centre {
+    text-align: center;
+  }
+  
+
+  /* Bottom tool tip CSS for icons */
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      opacity: 1;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 2px 0;
+      position: absolute;
+      z-index: 1;
+      top: 120%;
+      left: 50%;
+      margin-left: -60px;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent black transparent;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
+  /* Active state for the emoji */
+  .popover {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .popover__menu {
+    border-radius: 4px;
+    border-top: 2px solid #49c5b6;
+    background: #fff;
+    margin: 8px 0;
+    min-width: 100%;
+    padding: 0.5rem 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 2px 3px 0 rgba(63, 63, 68, 0.2);
+    
+    transition-property: transform, opacity;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+    
+    transform: scale(0.9);
+    transform-origin: top left;
+    display: block;
+    opacity: 0;
+  }
+  
+  .popover__menu::after {
+      bottom: 100%;
+      left: 0.5rem;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: #49c5b6;
+      border-width: 7px;
+  }
+
+  .popover-block {
+    display: none;
+  }
+  
+  .popover__menu-item {
+    white-space: nowrap;
+  }
+  
+  .popover--active .popover__menu {
+    transform: scale(1);
+    display: block;
+    opacity: 1;
+  }
+  
+  td button {
+      border: none;
+  }
+
+  /* date time icon CSS */
+
+  .date-time {
+    display: inline;
+  }
+
+  #arrow {
+    padding: 2px;
+    height: 35px;
+    border: 1px dotted black;
+  }
+
+  #pop-arrow {
+    left: -5px;
+  }
+
+  .popover ul li {
+    list-style-type: none;
+  }
+
+  .popover ul li button {
+    width: 100%;
+  }
+
+  .popover ul li button:hover {
+    background-color: #49c5b6;
+  }
+
+  /* text file save css style */
+
+  .input-group {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .editor {
+    background-color: cadetblue;
+    height: 450px;
+  }

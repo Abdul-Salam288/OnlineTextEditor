@@ -212,4 +212,18 @@ const saveTextAsFile = () => {
   downloadLink.innerHTML = "Download File";
   downloadLink.href = URL.createObjectURL(textFileAsBlob);
   downloadLink.click();
+
+  if (window.webkitURL != null) {
+    downloadLink.href = URL.createObjectURL(textFileAsBlob);
+  }else {
+    downloadLink.href = URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = destroyClickedElement;
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+  }
+}
+
+function destroyClickedElement(event)
+{
+	document.body.removeChild(event.target);
 }
